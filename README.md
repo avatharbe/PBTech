@@ -7,7 +7,7 @@ This style was inspired by the Battlenet forums 2015. example
 http://web.archive.org/web/20141207163104/http://us.battle.net/en/forum/topic/10423582376
 
 #### Requirements
-- phpBB 3.3.17 or higher
+- phpBB 3.3.18 or higher
 - prosilver
 
 #### Customizing
@@ -18,6 +18,11 @@ For more information and support, we suggest you visit
 - [avathar.be] (https://www.avathar.be/forum/viewforum.php?f=100)  
 
 ### Changes
+3.0.24 (24-09-2026)
+- aligned with phpBB 3.3.18 prosilver
+- refreshed `theme/images/icons/icons_contact.png` from prosilver 3.3.18: the pm, skype, twitter and aol icons were redrawn, and prosilver's inherited `.phpbb_twitter-icon` position moved from `-203px` to `-202px`, so the sprite and the position have to be updated together
+- inherits the new `mcp_topic_postrow_post_after` template event automatically — pbtech does not override `mcp_topic.html`
+
 3.0.23 (24-09-2026)
 - aligned with phpBB 3.3.17 prosilver
 - inherits the prosilver `login_body_oauth.html` fix automatically (`oauth.REDIRECT_URL` renamed to `oauth.LOGIN_URL`) — pbtech does not override that template
