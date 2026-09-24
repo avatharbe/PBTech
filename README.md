@@ -15,7 +15,7 @@ In the contrib folder you can find a photoshop psd with another icon set.
 
 ### Support
 For more information and support, we suggest you visit
-- [avathar.be] (https://www.avathar.be/forum/viewforum.php?f=82)  
+- [avathar.be] (https://www.avathar.be/forum/viewforum.php?f=100)  
 
 ### Changes
 3.0.21 (30-04-2026)
