@@ -7,7 +7,7 @@ This style was inspired by the Battlenet forums 2015. example
 http://web.archive.org/web/20141207163104/http://us.battle.net/en/forum/topic/10423582376
 
 #### Requirements
-- phpBB 3.3.16 or higher
+- phpBB 3.3.17 or higher
 - prosilver
 
 #### Customizing
@@ -18,6 +18,10 @@ For more information and support, we suggest you visit
 - [avathar.be] (https://www.avathar.be/forum/viewforum.php?f=100)  
 
 ### Changes
+3.0.23 (24-09-2026)
+- aligned with phpBB 3.3.17 prosilver
+- inherits the prosilver `login_body_oauth.html` fix automatically (`oauth.REDIRECT_URL` renamed to `oauth.LOGIN_URL`) — pbtech does not override that template
+
 3.0.22 (24-09-2026)
 - fixed unclickable footer links (Privacy, Terms, the phpBB and PBWoW credits, and the ACP link): pbwowext's WebKit `z-index: auto` reset promotes its decorative `#video-background` layer into the `z-index: 0` layer, where it swallowed clicks on the static `#page-footer`; `theme/extensions.css` now sets `pointer-events: none` on that layer
 - removed the hardcoded top bar (`template/top_bar.html`, `theme/topbar.css` and its `@import`): demo scaffolding with a dead `href="#"` and two language keys undefined in the pack (`PHPBB`, `LINK`), which also clashed with pbwowext's own `#top-bar` id
