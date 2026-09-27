@@ -82,9 +82,7 @@
     height: auto;
 }
 
-.dropdown-select:after {
-    border-color: #5D5D5D;
-    font-size: 12px;
+.dropdown-select:after {    font-size: 12px;
     height: 100%;
     padding-left: 3px;
     text-align: center;
@@ -97,8 +95,6 @@
 .nojs .dropdown-container:hover .dropdown-select:after {
     border-color: rgba(0, 0, 0, 0.15);
 }
-
-
 
 /* Icon images
 --------------------------------------------- */
@@ -113,15 +109,11 @@
     padding-right: 0 !important;
 }
 
-
-
 .small-icon > a:before,
 #top-bar .small-icon:before,
 .profile-context .user-icons a:before {
     display: inline-block;
-    font-family: FontAwesome;
-    color: #888;
-    text-shadow: 0 0 5px #000;
+    font-family: FontAwesome;    text-shadow: 0 0 5px #000;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -152,14 +144,10 @@
     /*text-shadow: 0 0 16px #C920C7;*/
 }
 
-
 .dropdown-contents .small-icon > a:before {
     width: 1.28571em;
     text-align: center;
 }
-
-
-
 
 /* Post control buttons */
 .post-buttons .icon-button {
