@@ -899,7 +899,7 @@ fieldset.polls dl.voted {
 }
 
 .postprofile {
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
 }
 
 .online .postprofile dt strong:before,
