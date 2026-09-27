@@ -16,3 +16,5 @@ Icon
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+### Editor and tooling
+.claude/
