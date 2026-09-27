@@ -115,8 +115,9 @@ li.row.bg3,
     padding-top: 0.5em;
 }
 
-.topic_poll h2 span {
-    font: bold 18px;
+.topic_poll h2.poll-title {
+    font-weight: bold;
+    font-size: 18px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     padding: 7px 5px 7px 25px;
 }
