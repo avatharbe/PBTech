@@ -980,7 +980,7 @@ ul.linklist li.responsive-menu a.responsive-menu-link:before {
 
 .profile-context a.icon-profile { background-position: 0 0; }
 .profile-context a.icon-search { background-position: 0 -30px; }
-.profile-context a.icon-ignore { background-position: 0 -60px; }
+.profile-context a.icon-pm { background-position: 0 -60px; }
 
 /* Custom tooltips (replaces native title tooltips)
 --------------------------------------------- */

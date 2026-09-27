@@ -983,11 +983,10 @@ fieldset.polls dl.voted {
 }
 
 .online .postprofile dt strong:before,
-.online .postprofile dt strong:after,
 .online .postprofile dt a:not(.avatar):before,
-.online .postprofile dt a:not(.avatar):after {
+.panel.online dl.profile-details > dd:first-of-type > span:first-child:before {
     color: #5CFF00;
-    text-shadow: #5DF644;
+    text-shadow: 0 0 4px #5DF644;
 }
 
 /* Gaming assets (pbWow extension)

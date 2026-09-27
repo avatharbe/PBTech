@@ -299,22 +299,22 @@ fieldset.polls dl.voted {
     background: url("./images/avatar-tr.png") 100% 0 no-repeat, url("./images/avatar-bl.png") 0 100% no-repeat;
 }
 
+/* Online indicator: one dot before the username, on posts, PMs and the full profile */
 .online .postprofile dt strong:before,
-.online .postprofile dt strong:after,
 .online .postprofile dt a:not(.avatar):before,
-.online .postprofile dt a:not(.avatar):after {
-    content: "«";
-    font-size: 1em;
+.panel.online dl.profile-details > dd:first-of-type > span:first-child:before {
+    content: "\f111";
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 0.6em;
+    font-style: normal;
     font-weight: normal;
-    margin-right: 4px;
-    text-shadow: 0 0 3px #0cf;
-}
-
-.online .postprofile dt strong:after,
-.online .postprofile dt a:not(.avatar):after {
-    content: "»";
-    margin-left: 4px;
-    margin-right: auto;
+    line-height: inherit;
+    vertical-align: middle;
+    margin-right: 5px;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .postprofile dt, .postprofile dd {

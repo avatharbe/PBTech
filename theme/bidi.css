@@ -151,20 +151,6 @@
 	}
 }
 
-/* Pagination
---------------------------------------------- */
-.rtl .pagination li.next a:after {
-	content: '\f053';
-	padding-left: 0px;
-	padding-right: 1px;
-}
-
-.rtl .pagination li.previous a:after {
-	content: '\f054';
-	padding-right: 0px;
-	padding-left: 1px;
-}
-
 /* Search box (header)
 --------------------------------------------- */
 .rtl .search-header {
