@@ -33,22 +33,11 @@ li.row.bg3,
     margin-left: 10px !important; /* TODO check */
 }
 
-.post {
-    margin: 0 1px 4px;
-    border-radius: 0;
-    padding: 3px;
-}
-
-.post > .inner {
-    padding: 2px;
-}
-
+.post {    border-radius: 0;}
 .post,
 .post > .inner,
 .post.bg1 > .inner,
-.post.bg2 > .inner {
-    background: none;
-    border: none;
+.post.bg2 > .inner {    border: none;
     box-shadow: none;
     margin: 0;
     padding: 0;
@@ -58,9 +47,7 @@ li.row.bg3,
 .post.reported,
 .post.warned,
 .post.deleted {
-    padding: 5px;
-    border-bottom: 1px solid;
-}
+    padding: 5px;}
 
 .topic_poll:before,
 .action-bar.top + .post-container:before {
@@ -76,9 +63,7 @@ li.row.bg3,
 .post .postbody .content,
 #cp-main .post .content,
 #cp-main .pm .content {
-    text-align: left;
-    border-top: solid 1px;
-    padding: 10px;
+    text-align: left;    padding: 10px;
 }
 
 .postbody .ignore {
@@ -88,14 +73,11 @@ li.row.bg3,
 /* Topic review panel
 ----------------------------------------*/
 
-
 /* MCP Post details
 ----------------------------------------*/
 
-
 /* Content container styles
 ----------------------------------------*/
-
 
 /* BB Code styles
 ----------------------------------------*/
@@ -114,10 +96,7 @@ li.row.bg3,
     padding: 0;
 }
 
-.topic_poll .content {
-    padding: 0 20px;
-    position: relative;
-    border: 1px solid #CAC9C8;
+.topic_poll .content {    border: 1px solid #CAC9C8;
 }
 
 .topic_poll .polls {
@@ -169,12 +148,9 @@ li.row.bg3,
     line-height: 1.5em;
 }
 
-
 fieldset.polls dl {
     border: none;
-    line-height: 16px;
-    color: inherit;
-}
+    line-height: 16px;}
 
 fieldset.polls dt, fieldset.polls dd {
     -moz-box-sizing: border-box;
@@ -268,9 +244,7 @@ fieldset.polls dl.voted {
     box-sizing: border-box;
     width: 22%;
     float: left;
-    text-align: left;
-    text-shadow: 1px 1px 0;
-    min-height: inherit;
+    text-align: left;    min-height: inherit;
 }
 
 .postprofile dt {
@@ -330,7 +304,6 @@ fieldset.polls dl.voted {
     margin-bottom: 0;
 }
 
-
 /* Gaming assets (pbWow extension)
 --------------------------------------------- */
 .postprofile .icons-frame {
@@ -348,9 +321,7 @@ fieldset.polls dl.voted {
 .postprofile .icons-frame div {
     height: 18px;
     width: 18px;
-    background-size: 100% 100%;
-    background: no-repeat;
-    border-radius: 3px;
+    background-size: 100% 100%;    border-radius: 3px;
 }
 
 .postprofile .icons-frame > div {
@@ -401,17 +372,13 @@ fieldset.polls dl.voted {
     display: none !important;
 }
 
-.postprofile .avatar img {
-    border: 1px solid;
-    border-radius: 4px;
+.postprofile .avatar img {    border-radius: 4px;
     height: auto;
     width: auto;
     max-width: 200px;
 }
 
 /** end gaming assets **/
-
-
 
 /* Sort & Display options
 @ TODO: this is temporary
