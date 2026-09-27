@@ -69,10 +69,6 @@ hr {
     color: #888;
 }
 
-.navblock > .inner {
-    border: #1a1a1a;
-}
-
 /* PBTECH body header (grey menu breadcrumbs)
 --------------------------------------------- */
 
@@ -149,9 +145,6 @@ hr {
 
 /* Table styles
 ----------------------------------------*/
-table.table1 thead tr {
-    border-bottom: #0080B2; /* TODO color */
-}
 
 table.table1 thead th {
     color: #222;
@@ -159,7 +152,6 @@ table.table1 thead th {
 
 table.table1 tbody th {
     background: #101010;
-    border-bottom: #000000;
     color: #CCC;
 }
 
@@ -295,15 +287,9 @@ body.section-viewtopic div.rules {
     background: linear-gradient(to bottom, rgba(19,19,19,0.14) 0%, rgba(214,210,214,0.14) 100%);
 }
 
-body.section-viewforum div.rules > .inner,
-body.section-viewtopic div.rules > .inner {
-    border: #000;
-}
-
 p.post-notice,
 .postbody div.rules {
     background-color: rgba(255, 0, 0, 0.1);
-    border: #AA1111;
 }
 
 p.post-notice {
@@ -600,10 +586,6 @@ li.row.reported:hover
     background-color: rgba(255, 17, 17, 0.3);
 }
 
-ul.topiclist li.header {
-    border-bottom: #C5C5C5;
-}
-
 li.header dt, li.header dd {
     color: #5a545c;
 }
@@ -650,7 +632,6 @@ blockquote {
 .post.deleted {
     background-color: rgba(0,0,0,0.09);
     background: linear-gradient(to bottom, rgb(191 189 189 / 14%) 0%, rgb(245 245 245 / 14%) 100%);
-    border-bottom: #CAC9C8;
 }
 
 .post .postbody .content,
@@ -658,12 +639,10 @@ blockquote {
 #cp-main .pm .content {
     background-image: none;
     border-color: rgba(200, 200, 200, 0.6);
-    border-top: rgba(0, 0, 0, 0.5);
 }
 
 .post > .inner {
     background: #F2F3F3;
-    border-bottom: #CAC9C8;
 }
 
 .topic_poll:before,
@@ -909,10 +888,6 @@ fieldset.polls dl.voted {
     background: #000;
 }
 
-.postprofile .avatar img {
-    border: rgba(0,152,245,0.7);
-}
-
 .postprofile .rank-icon {
     background: none;
     color: #FFF;
@@ -998,7 +973,6 @@ Colours and backgrounds for cp.css
 
 #cp-main  {
     background: #ECEBEA;
-    border: #444;
 }
 
 #cp-main h3, #cp-main hr, #cp-menu hr {
@@ -1275,10 +1249,6 @@ input.disabled {
 
 /* Search box (header)
 --------------------------------------------- */
-
-.search-header .inputbox {
-    border: #7F7F7F;
-}
 
 .search-header .inputbox:focus {
     border: none;
