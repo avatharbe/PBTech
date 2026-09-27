@@ -55,7 +55,6 @@ body.section-search p:not(.jumpbox-return) a.arrow-right {
     display: none;
 }
 
-
 .search-box .inputbox,
 .search-box button.search-icon {
     height: auto;
@@ -78,7 +77,6 @@ body.section-search p:not(.jumpbox-return) a.arrow-right {
 input[type=checkbox][disabled] {
     opacity: 0.7;
 }
-
 
 fieldset.display-options.right-box { text-align: right; }
 
@@ -178,9 +176,7 @@ input.button3::-moz-focus-inner {
 }
 
 .search-header:before {
-    content: "";
-    display: block;
-    position: absolute;
+    content: "";    position: absolute;
     width: 85px;
     height: 17px;
     left: 6px;
@@ -208,11 +204,7 @@ input.button3::-moz-focus-inner {
     background-position: 0 100%;
 }
 
-.search-header button.search-icon {
-    height: 39px;
-    width: 74px !important; /* TODO necessary !important? */
-    border: none;
-    border-radius: 0;
+.search-header button.search-icon {    width: 74px !important;    border-radius: 0;
     padding: 0;
     font-size: 0;
     box-shadow: none;
@@ -229,9 +221,7 @@ input.button3::-moz-focus-inner {
 
 .search-header .inputbox {
     line-height: 15px;
-    background: none;
-    border: none;
-    border-radius: 0;
+    background: none;    border-radius: 0;
     font-size: 13px;
     margin: 0;
     padding: 7px 0 7px 20px;

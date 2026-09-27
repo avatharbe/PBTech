@@ -40,7 +40,6 @@ a.top2 {
     padding-left: 0;
 }
 
-
 /* Back to top of page */
 .back2top .top {
     float: right;
@@ -48,20 +47,9 @@ a.top2 {
     margin-top: 0;
 }
 
-
 /* Arrow links  */
 a.arrow-up, a.arrow-down, a.arrow-left, a.arrow-right { padding: 0 3px !important; }
 a.arrow-up:before, a.arrow-down:after, a.arrow-left:before, a.arrow-right:after { font-size: 0.7em; vertical-align: middle; }
-
-/* Topic links */
-
-
-/* Post body links */
-.postlink {
-    border-bottom: 1px dotted;
-
-}
-
 .postlink:hover {
     background: none;
     text-decoration: none;
