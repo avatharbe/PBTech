@@ -843,13 +843,6 @@ ul.linklist li.responsive-menu a.responsive-menu-link:before {
     padding: 6px 6px 6px 15px;
 }
 
-.forums .dropdown-contents a.subforum.read {
-    background: url("./images/icons/icon_post_read.gif") 0 50% no-repeat;
-}
-
-.forums .dropdown-contents a.subforum.unread {
-    background: url("./images/icons/icon_post_unread.gif") 0 50% no-repeat;
-}
 
 /* Contact menu */
 
