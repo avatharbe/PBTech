@@ -44,7 +44,6 @@
     padding: 7px 10px;
 }
 
-
 /* Mini tabbed menu used in MCP
 ----------------------------------------*/
 #minitabs .tab > a {
@@ -83,11 +82,6 @@
 #navigation a:hover {
     text-decoration: none;
 }
-
-#navigation #active-subsection a {
-    display: block;
-}
-
 
 /* Preferences pane layout
 ----------------------------------------*/
