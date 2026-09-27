@@ -297,9 +297,7 @@ body.section-viewtopic div.rules {
 
 body.section-viewforum div.rules > .inner,
 body.section-viewtopic div.rules > .inner {
-    background: linear-gradient(to bottom, rgba(23, 23, 23, 1) 0, rgba(49, 49, 49, 0) 82px), linear-gradient(to top, rgba(26, 26, 26, 1) 0, rgba(49, 49, 49, 0) 46px) #313131;
     border: #000;
-    color: #DDD;
 }
 
 p.post-notice,
