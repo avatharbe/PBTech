@@ -2,6 +2,9 @@
 
 Version history for the [PBTech style for phpBB](../README.md).
 
+3.0.28 (27-09-2026)
+- fixed the breadcrumb structured data that Google Search Console reported as a critical `Missing field 'id' (in 'itemListElement.item')` error: each crumb link declared a nested `schema.org/Thing`, so the `<a>` opened its own item scope and its `href` was not taken as the item's id - the links now carry a plain `itemprop="item"` as in prosilver 3.3; the footer no longer declares a second `BreadcrumbList`, which was malformed rather than merely duplicated, emitting no `itemListElement` at all because `MICRODATA` and `navlink_position` are set in `navbar.html` and never reach the footer template ([#61](https://github.com/avatharbe/PBTech/issues/61))
+
 3.0.27 (27-09-2026)
 - restored the underline on links inside posts: `.postlink` carried a `border-bottom` with a colour and no width or style, which is valid CSS that resets `border-style` to `none`, so prosilver's underline was removed and nothing replaced it - links were left identifiable by colour alone, at 1.00:1 against the surrounding text ([#46](https://github.com/avatharbe/PBTech/issues/46))
 - removed the duplicate subforum icon: the forum list dropdown drew both a background sprite from `common.css` and `imageset.css` and the Font Awesome icon the template already renders ([#49](https://github.com/avatharbe/PBTech/issues/49))

@@ -2,23 +2,21 @@
 	<div class="inner">
 
 	<ul id="nav-main" class="nav-main linklist" role="menubar">
-		<li class="small-icon icon-home breadcrumbs {% if S_IS_LOCKED %} locked{% endif %}" itemscope itemtype="https://schema.org/BreadcrumbList">
+		<li class="small-icon icon-home breadcrumbs {% if S_IS_LOCKED %} locked{% endif %}">
 			{% if U_SITE_HOME %}
-			<span class="crumb" {{ MICRODATA }}>
-				<a href="{{ U_SITE_HOME }}" itemtype="https://schema.org/Thing" itemscope itemprop="item" data-navbar-reference="home">
+			<span class="crumb">
+				<a href="{{ U_SITE_HOME }}" data-navbar-reference="home">
 				
-				<span itemprop="name">{{ lang('SITE_HOME') }}</span>
+				<span>{{ lang('SITE_HOME') }}</span>
 				</a>
-				<meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" />				
 				</span>				
 			{% endif %}
 			{% EVENT overall_footer_breadcrumb_prepend %}
-			<span class="crumb" {{ MICRODATA }}>
+			<span class="crumb">
 				&nbsp;&nbsp;&nbsp;
-				<a href="{{ U_INDEX }}" itemtype="https://schema.org/Thing" itemscope itemprop="item" accesskey="h" data-navbar-reference="index">
-				<span itemprop="name">{{ lang('INDEX') }}</span>
+				<a href="{{ U_INDEX }}" accesskey="h" data-navbar-reference="index">
+				<span>{{ lang('INDEX') }}</span>
 				</a>
-				<meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" />
 			</span>
 			{% EVENT overall_footer_breadcrumb_append %}
 		</li>
