@@ -899,7 +899,7 @@ fieldset.polls dl.voted {
 }
 
 .postprofile {
-    text-shadow: rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
 }
 
 .online .postprofile dt strong:before,
@@ -922,7 +922,7 @@ fieldset.polls dl.voted {
 .postprofile .rank-icon {
     background: none;
     color: #FFF;
-    text-shadow: #000;
+    text-shadow: 0 0 2px #000;
 }
 
 /*
