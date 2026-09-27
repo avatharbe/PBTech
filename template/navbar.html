@@ -7,7 +7,7 @@
 
 			{% if U_SITE_HOME %}
 			<span class="crumb" {{ MICRODATA }}>
-				<a href="{{ U_SITE_HOME }}" itemtype="https://schema.org/Thing" itemscope itemprop="item" data-navbar-reference="home">
+				<a href="{{ U_SITE_HOME }}" itemprop="item" data-navbar-reference="home">
 				<i class="icon fa-home fa-fw" aria-hidden="true"></i>
 				<span itemprop="name">{{ lang('SITE_HOME') }}</span>
 				</a>
@@ -17,7 +17,7 @@
 
 			{% EVENT overall_header_breadcrumb_prepend %}
 			<span class="crumb" {{ MICRODATA }}>
-				<a href="{{ U_INDEX }}" itemtype="https://schema.org/Thing" itemscope itemprop="item" accesskey="h" data-navbar-reference="index">
+				<a href="{{ U_INDEX }}" itemprop="item" accesskey="h" data-navbar-reference="index">
 				{% if not U_SITE_HOME %}<i class="icon fa-home fa-fw" aria-hidden="true"></i>{% endif %}
 				<span itemprop="name">{{ lang('INDEX') }}</span>
 				</a>
@@ -31,7 +31,7 @@
 				{% set NAVLINK_LINK = navlink.U_BREADCRUMB | default(navlink.U_VIEW_FORUM) %}
 
 				<span class="crumb" {{ MICRODATA }}{% if navlink.MICRODATA %} {{ navlink.MICRODATA }}{% endif %}>
-					<a href="{{ NAVLINK_LINK }}" itemtype="https://schema.org/Thing" itemscope itemprop="item">
+					<a href="{{ NAVLINK_LINK }}" itemprop="item">
 					<span itemprop="name">{{ NAVLINK_NAME }}</span>
 					</a>
 					<meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" />

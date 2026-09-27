@@ -6,7 +6,7 @@ PBTech is a tech-themed style for phpBB 3.3, inspired by the Blizzard Battle.net
 
 The style is built as a child of **prosilver**. It keeps phpBB's standard markup, template events and responsive layout, and it picks up prosilver fixes automatically.
 
-- **Version:** 3.0.27 (27-09-2026)
+- **Version:** 3.0.28 (27-09-2026)
 - **Authors:** PayBas (2015) and [@Sajaki](https://www.phpbb.com/customise/db/author/sajaki/) (since 2016)
 - **Design reference:** [the Battle.net forums as they were in 2014](http://web.archive.org/web/20141207163104/http://us.battle.net/en/forum/topic/10423582376)
 
