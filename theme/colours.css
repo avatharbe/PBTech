@@ -1231,7 +1231,7 @@ a.button2, input.button2, input.button3 {
     background: #0081b4;
     background: linear-gradient(rgba(0, 129, 180, 1), rgba(0, 106, 155, 1));
     color: #DDD;
-    box-shadow: rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3);
 }
 
 input.button1:active, input.button2:active, input.button3:active {
@@ -1244,7 +1244,7 @@ a.button2:hover, input.button2:hover, input.button3:hover,
 input.button1:active, input.button3:active, input.button2:active {
     background: #009ee2;
     background: linear-gradient(rgba(0, 158, 226, 1), rgba(0, 158, 226, 1));
-    box-shadow: rgba(0, 129, 180, 0.25);
+    box-shadow: 0 0 4px rgba(0, 129, 180, 0.25);
     color: #FFF;
 }
 
@@ -1260,8 +1260,8 @@ input.disabled {
 .button1.disabled {
     background: #6D7176;
     border-color: #6D7176;
-    box-shadow: rgba(0, 0, 0, 0.3);
-    text-shadow: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
     color: #E1E0E0 !important;
 }
 
