@@ -1,0 +1,6 @@
+# Keep repository-only files out of `git archive` exports, so a package built
+# from a release tag contains the style and nothing else.
+.gitignore      export-ignore
+.gitattributes  export-ignore
+.claude/        export-ignore
+.github/        export-ignore
