@@ -210,7 +210,7 @@
 						<a class="icon-profile" href="{{ postrow.U_POST_AUTHOR }}">{{ lang('READ_PROFILE') }}</a>
 						<a class="icon-search" href="{{ postrow.U_SEARCH }}" title="{{ lang('SEARCH_USER_POSTS') }}"></a>
 						{% if postrow.S_FRIEND %}<!--Friend! yay!-->{% endif %}
-						{% if U_PROFILE %}<a class="icon-ignore" href="{{ U_PROFILE }}?i=zebra&amp;mode=foes&amp;add={{ postrow.POST_AUTHOR }}" title="Ignore user" accesskey="e"></a>{% endif %}
+						{% if postrow.U_PM %}<a class="icon-pm" href="{{ postrow.U_PM }}" title="{{ lang('SEND_PRIVATE_MESSAGE') }}"></a>{% endif %}
 					</dd>
 					{% endif %}
 
@@ -386,7 +386,9 @@
 
 			{% if postrow.BUMPED_MESSAGE %}<div class="notice"><br /><br />{{ postrow.BUMPED_MESSAGE }}</div>{% endif %}
 			{% EVENT viewtopic_body_postrow_post_notices_after %}
-			{% if postrow.SIGNATURE %}<div id="sig{{ postrow.POST_ID }}" class="signature">{{ postrow.SIGNATURE }}</div>{% endif %}
+			{% EVENT viewtopic_body_postrow_signature_before %}
+				{% if postrow.SIGNATURE %}<div id="sig{{ postrow.POST_ID }}" class="signature">{{ postrow.SIGNATURE }}</div>{% endif %}
+			{% EVENT viewtopic_body_postrow_signature_after %}
 
 			{% EVENT viewtopic_body_postrow_post_content_footer %}
 			</div>

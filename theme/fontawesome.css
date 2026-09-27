@@ -53,7 +53,7 @@ a.icon-check-square-o  				{ content: "\f046"; }
 
 .profile-context a.icon-profile:before	{ content: "\f007"; }
 .profile-context a.icon-search:before 	{ content: "\f002"; }
-.profile-context a.icon-ignore:before 	{ content: "\f05e"; }
+.profile-context a.icon-pm:before 		{ content: "\f0e0"; }
 
 .imageset.icon_contact:before 			{ content: "\f0e5"; padding-left: 2px; padding-top: 1px; }
 .imageset.icon_topic_reported:before 	{ content: "\f06a"; color: #FFF; padding-left: 3px; }
