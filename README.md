@@ -18,6 +18,11 @@ For more information and support, we suggest you visit
 - [avathar.be] (https://www.avathar.be/forum/viewforum.php?f=100)  
 
 ### Changes
+3.0.27 (27-09-2026)
+- restored the underline on links inside posts: `.postlink` carried a `border-bottom` with a colour and no width or style, which is valid CSS that resets `border-style` to `none`, so prosilver's underline was removed and nothing replaced it - links were left identifiable by colour alone, at 1.00:1 against the surrounding text ([#46](https://github.com/avatharbe/PBTech/issues/46))
+- removed the duplicate subforum icon: the forum list dropdown drew both a background sprite from `common.css` and `imageset.css` and the Font Awesome icon the template already renders ([#49](https://github.com/avatharbe/PBTech/issues/49))
+- removed twelve colour-only `border` declarations that never had any effect, and the six rules left empty by them; prosilver draws no border on any of those elements, so nothing is lost ([#47](https://github.com/avatharbe/PBTech/issues/47))
+
 3.0.26 (27-09-2026)
 - restored the back-to-top arrow in topics: `viewtopic_body.html` had dropped the `<i class="icon fa-chevron-circle-up">` that prosilver renders, and `theme/links.css` sets `content: none` on the pseudo-element that could have stood in for it, so the link rendered nothing for sighted users ([#41](https://github.com/avatharbe/PBTech/issues/41))
 - restored the chevrons on the search result arrow links - "Return to topic", "Go to advanced search" and "Jump to post" - the same dropped-icon defect in `search_results.html` and `navbar.html` ([#43](https://github.com/avatharbe/PBTech/issues/43))
