@@ -18,6 +18,18 @@ For more information and support, we suggest you visit
 - [avathar.be] (https://www.avathar.be/forum/viewforum.php?f=100)  
 
 ### Changes
+3.0.26 (27-09-2026)
+- restored the back-to-top arrow in topics: `viewtopic_body.html` had dropped the `<i class="icon fa-chevron-circle-up">` that prosilver renders, and `theme/links.css` sets `content: none` on the pseudo-element that could have stood in for it, so the link rendered nothing for sighted users ([#41](https://github.com/avatharbe/PBTech/issues/41))
+- restored the chevrons on the search result arrow links - "Return to topic", "Go to advanced search" and "Jump to post" - the same dropped-icon defect in `search_results.html` and `navbar.html` ([#43](https://github.com/avatharbe/PBTech/issues/43))
+- fixed the dropdown menu and profile card shadows, which rendered in the element's own text colour because the colour was given with no offsets, and deleted the dead `.dropdown-extended a.mark_read:before` rule ([#30](https://github.com/avatharbe/PBTech/issues/30))
+- fixed the arrow-link hover glow, which rendered in the inherited text colour instead of blue ([#31](https://github.com/avatharbe/PBTech/issues/31))
+- fixed the four button shadows, affecting every button on the board, including the blue hover glow ([#33](https://github.com/avatharbe/PBTech/issues/33))
+- fixed the rank icon shadow in the post author column ([#32](https://github.com/avatharbe/PBTech/issues/32))
+- fixed the post notice shadow ([#29](https://github.com/avatharbe/PBTech/issues/29))
+- retargeted the poll title rule to `.topic_poll h2.poll-title`: the old `.topic_poll h2 span` selector matched no element in phpBB 3.3, so the rule had never applied ([#34](https://github.com/avatharbe/PBTech/issues/34))
+- removed the forum rules box gradient rather than repairing it: making the declaration valid turned the box dark while the rest of the page stayed light, putting the text at 1.47:1 contrast ([#29](https://github.com/avatharbe/PBTech/issues/29))
+- removed the author column text shadow rather than repairing it: `.postprofile` is also the search results author column, where the shadow read as a blur ([#32](https://github.com/avatharbe/PBTech/issues/32))
+
 3.0.25 (27-09-2026)
 - fixed Customisation Database validation blockers from the 3.0.21 denial ([#14](https://github.com/avatharbe/PBTech/issues/14))
 - added missing `viewtopic_body_postrow_signature_before` and `viewtopic_body_postrow_signature_after` template events ([#23](https://github.com/avatharbe/PBTech/issues/23))
