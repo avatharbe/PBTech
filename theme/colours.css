@@ -340,7 +340,7 @@ ul.linklist li.responsive-menu a.responsive-menu-link:before {
 .dropdown .dropdown-contents {
     background: #EEE;
     border-color: #999;
-    box-shadow: rgba(100,100,100, 0.8);
+    box-shadow: 1px 1px 5px rgba(100,100,100, 0.8);
     text-shadow: none;
 }
 
@@ -407,10 +407,6 @@ ul.linklist li.responsive-menu a.responsive-menu-link:before {
     background-color: #FFF;
 }
 
-.dropdown-extended a.mark_read:before {
-    text-shadow: #000;
-}
-
 li.notification-reported strong, li.notification-disapproved strong {
     color: #FF1111;
 }
@@ -428,7 +424,7 @@ li.notification-reported strong, li.notification-disapproved strong {
 --------------------------------------------- */
 .profile-context .dropdown-contents {
     box-shadow: 0 0 0 1px #000, 0 1px 2px 1px rgba(0, 0, 0, 0.9), inset 0 0 10px 4px rgba(0, 0, 0, 0.5);
-    text-shadow: rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
     background-color: #4d606d;
     border-color: #8fa7b7;
 }
