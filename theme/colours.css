@@ -518,7 +518,7 @@ a:active	{ color: #0295EE; }
 a.up:hover, a.down:hover, a.left:hover, a.right:hover, a.top:hover, a.top2:hover,
 a.arrow-up:hover, a.arrow-down:hover, a.arrow-left:hover, a.arrow-right:hover {
     color: inherit;
-    text-shadow: #009CFF;
+    text-shadow: 0 0 2px #009CFF;
 }
 /* Topic links */
 
