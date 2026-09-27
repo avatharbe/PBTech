@@ -18,6 +18,18 @@ For more information and support, we suggest you visit
 - [avathar.be] (https://www.avathar.be/forum/viewforum.php?f=100)  
 
 ### Changes
+3.0.25 (27-09-2026)
+- fixed Customisation Database validation blockers from the 3.0.21 denial
+- added missing `viewtopic_body_postrow_signature_before` and `viewtopic_body_postrow_signature_after` template events
+- fixed missing pagination arrows: removed the `template/pagination.html` override, which differed from prosilver's only by the dropped `<i class="icon fa-chevron-...">` and `fa-level-down` elements, so the parent's icons are inherited again; the orphaned RTL `:after` arrows in `theme/bidi.css` were removed with it, since they would otherwise draw a second arrow
+- changed the online indicator from the `«` `»` pair to a single dot before the username, and applied the same dot to the full profile, which showed no indicator at all because the `background:` shorthands on `.panel` and `.bg1, .bg2, .bg3` reset `background-image` to `none`
+- fixed blank search and ignore icons in the profile hover card: `theme/buttons.css` set `display: none` on `.profile-context .user-icons a:before`, cancelling the FontAwesome content defined in `theme/fontawesome.css`
+- replaced the hover card's ignore button with a private message button built from `postrow.U_PM` and `SEND_PRIVATE_MESSAGE`; the ignore link's URL was assembled in the template and its "Ignore user" title hardcoded, and `ADD_FOES` cannot replace it because it lives in `language/en/ucp.php`, which `viewtopic.php` never loads
+- fixed invalid `text-shadow` on the online indicator (a bare colour with no offsets, so the glow never rendered)
+- fixed white table headers on light backgrounds outside `.panel-container`: the postlove most-liked summary measured 1.52:1 contrast and the memberlist and team headers 1.19:1; `table.table1 thead th` is no longer panel-scoped
+- removed 92 dead CSS declarations superseded by a later declaration of the same property on an identical selector (no rendering change: 0 computed-style differences across 31,337 elements on 8 pages at 1280/700/500/430px)
+- removed `theme/responsive.css`: never imported or linked, and drifted out of the style - its first 39 lines sit outside any media query and set a dark `.page-body` background plus rules for the top bar removed in 3.0.22
+
 3.0.24 (24-09-2026)
 - aligned with phpBB 3.3.18 prosilver
 - refreshed `theme/images/icons/icons_contact.png` from prosilver 3.3.18: the pm, skype, twitter and aol icons were redrawn, and prosilver's inherited `.phpbb_twitter-icon` position moved from `-203px` to `-202px`, so the sprite and the position have to be updated together
