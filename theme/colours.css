@@ -898,10 +898,6 @@ fieldset.polls dl.voted {
     text-shadow: none;
 }
 
-.postprofile {
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
-}
-
 .online .postprofile dt strong:before,
 .online .postprofile dt a:not(.avatar):before,
 .panel.online dl.profile-details > dd:first-of-type > span:first-child:before {
