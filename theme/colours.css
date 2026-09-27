@@ -900,10 +900,6 @@ fieldset.polls dl.voted {
     text-shadow: none;
 }
 
-.postprofile {
-    text-shadow: rgba(0, 0, 0, 0.7);
-}
-
 .online .postprofile dt strong:before,
 .online .postprofile dt a:not(.avatar):before,
 .panel.online dl.profile-details > dd:first-of-type > span:first-child:before {
@@ -924,7 +920,7 @@ fieldset.polls dl.voted {
 .postprofile .rank-icon {
     background: none;
     color: #FFF;
-    text-shadow: #000;
+    text-shadow: 0 0 2px #000;
 }
 
 /*
