@@ -158,7 +158,7 @@ table.table1 thead tr {
     border-bottom: #0080B2; /* TODO color */
 }
 
-.panel-container table.table1 thead th {
+table.table1 thead th {
     color: #222;
 }
 
