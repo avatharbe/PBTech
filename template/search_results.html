@@ -7,9 +7,9 @@
 {% if PHRASE_SEARCH_DISABLED %} <p><strong>{{ lang('PHRASE_SEARCH_DISABLED') }}</strong></p>{% endif %}
 
 {% if SEARCH_TOPIC %}
-	<p class="return-link"><a class="arrow-{{ S_CONTENT_FLOW_BEGIN }}" href="{{ U_SEARCH_TOPIC }}">{{ lang('RETURN_TO_TOPIC') }}</a></p>
+	<p class="return-link"><a class="arrow-{{ S_CONTENT_FLOW_BEGIN }}" href="{{ U_SEARCH_TOPIC }}"><i class="icon fa-angle-{{ S_CONTENT_FLOW_BEGIN }} fa-fw icon-black" aria-hidden="true"></i><span>{{ lang('RETURN_TO_TOPIC') }}</span></a></p>
 {% else %}
-	<p class="advanced-search-link"><a class="arrow-{{ S_CONTENT_FLOW_BEGIN }}" href="{{ U_SEARCH }}" title="{{ lang('SEARCH_ADV') }}">{{ lang('GO_TO_SEARCH_ADV') }}</a></p>
+	<p class="advanced-search-link"><a class="arrow-{{ S_CONTENT_FLOW_BEGIN }}" href="{{ U_SEARCH }}" title="{{ lang('SEARCH_ADV') }}"><i class="icon fa-angle-{{ S_CONTENT_FLOW_BEGIN }} fa-fw icon-black" aria-hidden="true"></i><span>{{ lang('GO_TO_SEARCH_ADV') }}</span></a></p>
 {% endif %}
 
 {% EVENT search_results_header_after %}
@@ -154,7 +154,7 @@
 
 	{% if not searchresults.S_IGNORE_POST %}
 		<ul class="searchresults">
-			<li ><a href="{{ searchresults.U_VIEW_POST }}" class="arrow-{{ S_CONTENT_FLOW_END }}">{{ lang('JUMP_TO_POST') }}</a></li>
+			<li ><a href="{{ searchresults.U_VIEW_POST }}" class="arrow-{{ S_CONTENT_FLOW_END }}"><i class="icon fa-angle-{{ S_CONTENT_FLOW_END }} fa-fw icon-black" aria-hidden="true"></i><span>{{ lang('JUMP_TO_POST') }}</span></a></li>
 		</ul>
 	{% endif %}
 
