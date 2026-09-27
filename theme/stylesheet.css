@@ -16,8 +16,7 @@
 /*no icons override*/
 @import url("colours.css?v=3.3");
 @import url("imageset.css?v=3.3");
-/*no custom override*/
-/*no responsive override */
+/*no responsive override: prosilver's responsive.css is inherited unchanged*/
 @import url("extensions.css?v=3.3");
 @import url("fontawesome.css?v=3.3");
 @import url("custom.css?v=3.3");
@@ -105,7 +104,7 @@ dl.pm_read {
 }
 
 
-/* =Media queries (all >700px rules are in responsive.css)
+/* =Media queries
 -------------------------------------------------------------- */
 
 @media screen and (max-width: 999px) {
@@ -124,7 +123,7 @@ dl.pm_read {
 	}
 }
 
-/* =Media queries (all >700px rules are in responsive.css)
+/* =Media queries
 -------------------------------------------------------------- */
 
 @media screen and (max-width: 700px), only screen and (max-device-width: 700px) {
