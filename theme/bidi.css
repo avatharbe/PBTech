@@ -213,10 +213,6 @@
 	padding-right: 15px;
 }
 
-.rtl .forums .dropdown-contents a.subforum.read,
-.rtl .forums .dropdown-contents a.subforum.unread {
-	background-position: 100% 50%;
-}
 
 /* Profile Context Menu */
 .rtl .profile-context .dropdown {

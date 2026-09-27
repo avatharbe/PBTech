@@ -35,8 +35,6 @@ span.imageset {
     text-align: center;
 }
 
-.forums .dropdown-contents a.subforum.read		{ background-image: url("./images/icons/icon_post_read.gif"); }
-.forums .dropdown-contents a.subforum.unread	{ background-image: url("./images/icons/icon_post_unread.gif"); }
 
 .imageset.icon_topic_poll 			{ background: url("./images/icons/polls16.png") 100% 100% no-repeat; padding: 14px 0 0 20px; vertical-align: middle; }
 .imageset.icon_topic_attach 		{ background-image: url("./images/icons/icon_topic_attach.gif"); padding: 10px 0 0 7px; }
