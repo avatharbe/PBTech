@@ -31,11 +31,11 @@
 	{% EVENT viewtopic_buttons_top_before %}
 
 	{% if not S_IS_BOT and S_DISPLAY_REPLY_INFO %}
-		<a href="{{ U_POST_REPLY_TOPIC }}" class="button icon-button {% if S_IS_LOCKED %}locked-icon{% else %}reply-icon{% endif %}" title="
+		<a href="{{ U_POST_REPLY_TOPIC }}" class="button icon-button {% if S_IS_LOCKED %}locked-icon{% else %}reply-icon{% endif %}" title="{% if S_IS_LOCKED %}{{ lang('TOPIC_LOCKED') }}{% else %}{{ lang('POST_REPLY') }}{% endif %}">
 			{% if S_IS_LOCKED %}
-				<span>{{ lang('TOPIC_LOCKED') }}{% else %}{{ lang('POST_REPLY') }}{% endif %}"></span>
-			{% if S_IS_LOCKED %}
-				<span>{{ lang('BUTTON_TOPIC_LOCKED') }}{% else %}{{ lang('BUTTON_POST_REPLY') }}</span>
+				<span>{{ lang('BUTTON_TOPIC_LOCKED') }}</span>
+			{% else %}
+				<span>{{ lang('BUTTON_POST_REPLY') }}</span>
 			{% endif %}
 		</a>
 	{% endif %}
