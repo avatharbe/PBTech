@@ -1,3 +1,8 @@
+/* PBTech addition: imageset.css has no prosilver counterpart
+   --------------------------------------------------------------
+   Loaded after the prosilver overrides via stylesheet.css.
+   -------------------------------------------------------------- */
+
 /* Imageset */
 span.imageset {
     display: inline-block !important;

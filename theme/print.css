@@ -1,3 +1,10 @@
+/* Full copy of prosilver/theme/print.css -- NOT an override
+   --------------------------------------------------------------
+   viewtopic_print.html and ucp_pm_viewmessage_print.html load
+   {T_THEME_PATH}/print.css on its own, without prosilver's copy,
+   so this file must stay complete. Do not trim it to overrides.
+   -------------------------------------------------------------- */
+
 /* Print Style Sheet
 ---------------------------------------- */
 

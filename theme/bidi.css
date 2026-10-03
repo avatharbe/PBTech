@@ -1,3 +1,11 @@
+/* PBTech override of prosilver/theme/bidi.css
+   --------------------------------------------------------------
+   prosilver's bidi.css is loaded first (right-to-left languages only, see overall_header.html); the rules below are
+   applied on top of it. Anything not set here is inherited from
+   prosilver unchanged. To restore prosilver behaviour, delete the
+   rule here rather than copying prosilver's version back in.
+   -------------------------------------------------------------- */
+
 /* RTL definitions
 ---------------------------------------- */
 
