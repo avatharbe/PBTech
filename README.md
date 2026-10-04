@@ -44,6 +44,14 @@ The `contrib` folder contains a Photoshop PSD with an alternative icon set.
 ## Changes
 See [contrib/CHANGELOG.md](contrib/CHANGELOG.md) for the full version history.
 
+## Development
+The repository includes lint tooling, which is left out of the style package. With Node.js 24:
+
+- `npm ci`, then `npm run lint` checks the theme CSS with stylelint and the templates with a phpBB-specific checker (legacy syntax, `DEFINE`, extension-owned variables). GitHub Actions runs the same on every pull request.
+- `npm run validate` checks rendered pages of a running board with the W3C Nu HTML Checker (needs Java). Set `BOARD_URL` to the board root, and `STYLE_ID` to force the style while *Override user style* is off.
+
+Warnings mark cleanups that are still pending. They don't fail the build, only errors do.
+
 ## License
 [GNU General Public License v2](https://opensource.org/licenses/GPL-2.0)
 

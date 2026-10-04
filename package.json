@@ -1,0 +1,19 @@
+{
+	"name": "pbtech-style-dev",
+	"private": true,
+	"description": "Development tooling for the PBTech phpBB style. Not part of the style package.",
+	"license": "GPL-2.0-only",
+	"scripts": {
+		"lint": "npm run lint:css && npm run lint:templates",
+		"lint:css": "stylelint \"theme/*.css\"",
+		"lint:templates": "node lint/lint-templates.mjs template",
+		"validate": "node lint/validate-pages.mjs"
+	},
+	"devDependencies": {
+		"@stylistic/stylelint-plugin": "^3.1.3",
+		"stylelint": "^16.26.1"
+	},
+	"optionalDependencies": {
+		"vnu-jar": "^26.10.2"
+	}
+}
