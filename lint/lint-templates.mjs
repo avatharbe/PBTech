@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+// phpBB-specific template checks that generic Twig linters cannot do: they choke on phpBB tags
+// such as EVENT and INCLUDECSS.
+// Usage: node lint/lint-templates.mjs [template dir]
+// Errors exit 1. Warnings are printed but do not fail, so a cleanup rule can be tracked before it is
+// enforced; switch its severity to 'error' when the cleanup lands.
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
+const dir = process.argv[2] ?? 'template';
+
+// Template variables owned by extensions. A style must not reference them; the extension injects
+// its markup through a template event instead.
+const EXTENSION_VARS = ['HEADERLINKS_CODE', 'TOPBAR_CODE', 'ADS_INDEX_CODE', 'RECENT_TOPICS_DISPLAY'];
+
+const RULES = [
+	{ id: 'legacy-tag', severity: 'error', re: /<!--\s*(IF|ELSEIF|ELSE|ENDIF|BEGIN|BEGINELSE|END|INCLUDE\w*|DEFINE|UNDEFINE|EVENT)\b/, msg: 'legacy <!-- ... --> template tag; use Twig {% %}' },
+	{ id: 'legacy-var', severity: 'error', re: /(?<!\{)\{(L_|LA_|S_|U_|T_)?[A-Z][A-Z0-9_]*(\.[A-Z][A-Z0-9_]*)?\}(?!\})/, msg: 'legacy {VAR} output; use {{ VAR }} / {{ lang() }}' },
+	{ id: 'define', severity: 'error', re: /\{%-?\s*(DEFINE|UNDEFINE)\b/, msg: 'DEFINE; use {% set %}' },
+	{ id: 'definition', severity: 'error', re: /\bdefinition\.(?!STYLESHEETS\b|SCRIPTS\b)\w+/, msg: 'definition.X; read the {% set %} variable instead' },
+	{ id: 'legacy-operator', severity: 'error', re: /\{%.*?\s(eq|neq|ne|gt|lt|gte|lte|mod)\s.*?%\}/, msg: 'legacy comparison operator; use == != > < >= <= %' },
+	{ id: 'extension-var', severity: 'error', re: new RegExp(`\\b(${EXTENSION_VARS.join('|')})\\b`), msg: 'extension-owned variable; the extension should inject it via a template event' },
+	// Cleanup rules, enforced once #76 lands.
+	{ id: 'trailing-whitespace', severity: 'warning', re: /[ \t]+$/, msg: 'trailing whitespace' },
+	{ id: 'space-indent', severity: 'warning', re: /^ {2,}\S/, msg: 'space indentation; use tabs' },
+];
+
+const counts = { error: 0, warning: 0 };
+for (const file of readdirSync(dir).filter(f => f.endsWith('.html')).sort()) {
+	const lines = readFileSync(join(dir, file), 'utf8').split(/\r?\n/);
+	lines.forEach((line, i) => {
+		for (const rule of RULES) {
+			const match = line.match(rule.re);
+			if (match) {
+				counts[rule.severity]++;
+				console.log(`${join(dir, file)}:${i + 1}  ${rule.severity}  ${rule.id}  ${rule.msg}  [${match[0].trim().slice(0, 50)}]`);
+			}
+		}
+	});
+}
+
+console.log(`${counts.error} error(s), ${counts.warning} warning(s)`);
+process.exit(counts.error ? 1 : 0);
