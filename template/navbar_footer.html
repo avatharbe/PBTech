@@ -1,15 +1,15 @@
 <div class="navbar_footer" role="navigation">
 	<div class="inner">
 
-	<ul id="nav-main" class="nav-main linklist" role="menubar">
+	<ul id="nav-footer" class="nav-main linklist" role="menubar">
 		<li class="small-icon icon-home breadcrumbs {% if S_IS_LOCKED %} locked{% endif %}">
 			{% if U_SITE_HOME %}
 			<span class="crumb">
 				<a href="{{ U_SITE_HOME }}" data-navbar-reference="home">
-				
+
 				<span>{{ lang('SITE_HOME') }}</span>
 				</a>
-				</span>				
+				</span>
 			{% endif %}
 			{% EVENT overall_footer_breadcrumb_prepend %}
 			<span class="crumb">
@@ -20,7 +20,7 @@
 			</span>
 			{% EVENT overall_footer_breadcrumb_append %}
 		</li>
-		
+
 		{% if U_WATCH_FORUM_LINK and not S_IS_BOT %}
 			<li class="small-icon {% if S_WATCHING_FORUM %}icon-check-square-o{% else %}icon-square-o{% endif %}" data-skip-responsive="true">
 				<a	href="{{ U_WATCH_FORUM_LINK }}"

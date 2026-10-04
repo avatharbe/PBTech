@@ -99,7 +99,7 @@ i, em {
     width: 308px;
     height: 92px;
     margin: 10px 0;
-    padding: 0;    
+    padding: 0;
     line-height: 0;
     display: block;
 }
@@ -233,6 +233,7 @@ i, em {
 }
 
 #nav-main,
+#nav-footer,
 #body-header ul.navlinks,
 #page-footer .navbar {
     max-width: 990px;
