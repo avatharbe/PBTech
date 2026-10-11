@@ -2,7 +2,7 @@
 
 Version history for the [PBTech style for phpBB](../README.md).
 
-4.0.0-dev (unreleased) - phpBB 4.0 port
+4.0.0-a1 (11-10-2026) - phpBB 4.0 port, alpha
 - requires phpBB 4.0; phpBB 3.3 boards stay on the 3.0.x line
 - added `composer.json` and removed `style.cfg`: phpBB 4.0 only lists style folders that contain a `composer.json` (PHPBB-10824), so the style did not show up under ACP > Install styles at all
 - replaced every Font Awesome 4 `<i class="icon fa-*">` with phpBB 4.0's `Icon()` Twig function: 4.0 ships Font Awesome 6 and drops prosilver's `.icon` class, so these icons rendered blank - the breadcrumb home icon, mark forums read, the sort options button, the topic list poll, attachment, unapproved and multi-page icons, the subforum icons and the search result arrow links. PBTech's own image-based icons are unchanged: 4.0 still provides `TOPIC_IMG_STYLE`, `FORUM_IMG_STYLE` and the `*_IMG` imageset variables, and still ships the `FontAwesome` compatibility font the `small-icon` menu icons use

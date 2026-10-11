@@ -2,7 +2,7 @@
     "name": "avathar/pbtech",
     "description": "PBTech style for phpBB",
     "type": "phpbb-style",
-    "version": "4.0.0-dev",
+    "version": "4.0.0-a1",
     "license": "GPL-2.0-only",
     "authors": [
         {
