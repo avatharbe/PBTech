@@ -1,165 +1,168 @@
 <div class="navbar" role="navigation">
 	<div class="inner">
-	<ul id="nav-main" class="nav-main linklist" role="menubar">
-		<li id="quick-links" class="small-icon quick-links dropdown-container responsive-menu{% if not S_DISPLAY_QUICK_LINKS and not S_DISPLAY_SEARCH %} hidden{% endif %}" data-skip-responsive="true">
-			<a href="#" class="responsive-menu-link dropdown-trigger" title="{{ lang('QUICK_LINKS') }}" >{{ lang('QUICK_LINKS') }}</a>
-			<div class="dropdown">
-				<div class="pointer"><div class="pointer-inner"></div></div>
-				<ul class="dropdown-contents" role="menu">
-					{% EVENT navbar_header_quick_links_before %}
-					{% if S_DISPLAY_SEARCH %}
-						<li class="separator"></li>
-						{% if S_REGISTERED_USER %}
-						<li class="small-icon icon-search-self">
-							<a href="{{ U_SEARCH_SELF }}" role="menuitem">
-								{{ lang('SEARCH_SELF') }}
-							</a>
-						</li>
-						{% endif %}
-						{% if S_USER_LOGGED_IN %}
-						<li class="small-icon icon-search-new">
-							<a href="{{ U_SEARCH_NEW }}" role="menuitem">
-								{{ lang('SEARCH_NEW') }}
-							</a>
-						</li>
-						{% endif %}
-						{% if S_LOAD_UNREADS %}
-						<li class="small-icon icon-search-unread">
-							<a href="{{ U_SEARCH_UNREAD }}" role="menuitem">
-								{{ lang('SEARCH_UNREAD') }}
-							</a>
-						</li>
-						{% endif %}
-						<li class="small-icon icon-search-unanswered">
-							<a href="{{ U_SEARCH_UNANSWERED }}" role="menuitem">
-								{{ lang('SEARCH_UNANSWERED') }}
-							</a>
-						</li>
-						<li class="small-icon icon-search-active">
-							<a href="{{ U_SEARCH_ACTIVE_TOPICS }}" role="menuitem">
-								{{ lang('SEARCH_ACTIVE_TOPICS') }}
-							</a>
-						</li>
-						<li class="separator"></li>
-						<li class="small-icon icon-search">
-							<a href="{{ U_SEARCH }}" role="menuitem">
-								{{ lang('SEARCH') }}
-							</a>
-						</li>
-					{% endif %}
 
-					{% if not S_IS_BOT and (S_DISPLAY_MEMBERLIST or U_TEAM) %}
-						<li class="separator"></li>
-						{% if S_DISPLAY_MEMBERLIST %}
-						<li class="small-icon icon-members">
-							<a href="{{ U_MEMBERLIST }}" role="menuitem">
-								{{ lang('MEMBERLIST') }}
-							</a>
-						</li>
-						{% endif %}
-						{% if U_TEAM %}
-						<li class="small-icon icon-team">
-							<a href="{{ U_TEAM }}" role="menuitem">
-								{{ lang('THE_TEAM') }}
-							</a>
-						</li>
-						{% endif %}
-					{% endif %}
-					<li class="separator"></li>
-
-					{% EVENT navbar_header_quick_links_after %}
-				</ul>
-			</div>
-		</li>
-
-	{% if S_REGISTERED_USER %}
-		{% EVENT navbar_header_user_profile_prepend %}
-		<li id="username_logged_in" class="rightside {% if CURRENT_USER_AVATAR %} no-bulletin{% endif %}" data-skip-responsive="true">
-			{% EVENT navbar_header_username_prepend %}
-			<div class="header-profile dropdown-container">
-				<a href="{{ U_PROFILE }}" class="header-avatar dropdown-trigger">{% if CURRENT_USER_AVATAR %}{{ CURRENT_USER_AVATAR }} {% endif %}{{ CURRENT_USERNAME_SIMPLE }}</a>
-				<div class="dropdown hidden">
+		<ul id="nav-main" class="nav-main linklist" role="menubar">
+			<li id="quick-links" class="small-icon quick-links dropdown-container responsive-menu{% if not S_DISPLAY_QUICK_LINKS and not S_DISPLAY_SEARCH %} hidden{% endif %}">
+				<a href="#" class="responsive-menu-link dropdown-trigger" title="{{ lang('QUICK_LINKS') }}">{{ lang('QUICK_LINKS') }}</a>
+				<div class="dropdown">
 					<div class="pointer"><div class="pointer-inner"></div></div>
 					<ul class="dropdown-contents" role="menu">
-						{% if U_RESTORE_PERMISSIONS %}
-						<li class="small-icon icon-restore-permissions">
-							<a href="{{ U_RESTORE_PERMISSIONS }}">
-								{{ lang('RESTORE_PERMISSIONS') }}
-							</a>
-						</li>
+						{% EVENT navbar_header_quick_links_before %}
+
+						{% if S_DISPLAY_SEARCH %}
+							<li class="separator"></li>
+							{% if S_REGISTERED_USER %}
+								<li class="small-icon icon-search-self">
+									<a href="{{ U_SEARCH_SELF }}" role="menuitem">{{ lang('SEARCH_SELF') }}</a>
+								</li>
+							{% endif %}
+							{% if S_USER_LOGGED_IN %}
+								<li class="small-icon icon-search-new">
+									<a href="{{ U_SEARCH_NEW }}" role="menuitem">{{ lang('SEARCH_NEW') }}</a>
+								</li>
+							{% endif %}
+							{% if S_LOAD_UNREADS %}
+								<li class="small-icon icon-search-unread">
+									<a href="{{ U_SEARCH_UNREAD }}" role="menuitem">{{ lang('SEARCH_UNREAD') }}</a>
+								</li>
+							{% endif %}
+							<li class="small-icon icon-search-unanswered">
+								<a href="{{ U_SEARCH_UNANSWERED }}" role="menuitem">{{ lang('SEARCH_UNANSWERED') }}</a>
+							</li>
+							<li class="small-icon icon-search-active">
+								<a href="{{ U_SEARCH_ACTIVE_TOPICS }}" role="menuitem">{{ lang('SEARCH_ACTIVE_TOPICS') }}</a>
+							</li>
+							{% if U_MARK_FORUMS %}
+								<li class="small-icon icon-mark-read">
+									<a href="{{ U_MARK_FORUMS }}" role="menuitem" accesskey="m" data-ajax="mark_forums_read">{{ lang('MARK_FORUMS_READ') }}</a>
+								</li>
+							{% endif %}
+							<li class="separator"></li>
+							<li class="small-icon icon-search">
+								<a href="{{ U_SEARCH }}" role="menuitem">{{ lang('SEARCH') }}</a>
+							</li>
 						{% endif %}
 
-						{% EVENT navbar_header_profile_list_before %}
-						<li class="small-icon icon-ucp">
-							<a href="{{ U_PROFILE }}" title="{{ lang('PROFILE') }}" role="menuitem">
-								{{ lang('PROFILE') }}
-							</a>
-						</li>
-						{% if U_USER_PROFILE %}
-						<li class="small-icon icon-profile">
-							<a href="{{ U_USER_PROFILE }}" title="{{ lang('READ_PROFILE') }}" role="menuitem">
-								{{ lang('READ_PROFILE') }}
-							</a>
-						</li>
+						{% if not S_IS_BOT and (S_DISPLAY_MEMBERLIST or U_TEAM) %}
+							<li class="separator"></li>
+							{% if S_DISPLAY_MEMBERLIST %}
+								<li class="small-icon icon-members">
+									<a href="{{ U_MEMBERLIST }}" role="menuitem">{{ lang('MEMBERLIST') }}</a>
+								</li>
+							{% endif %}
+							{% if U_TEAM %}
+								<li class="small-icon icon-team">
+									<a href="{{ U_TEAM }}" role="menuitem">{{ lang('THE_TEAM') }}</a>
+								</li>
+							{% endif %}
 						{% endif %}
-						{% EVENT navbar_header_profile_list_after %}
-						<li class="separator"></li>
-						<li class="small-icon icon-logout">
-							<a href="{{ U_LOGIN_LOGOUT }}" title="{{ lang('LOGIN_LOGOUT') }}" accesskey="x" role="menuitem">
-							{{ lang('LOGIN_LOGOUT') }}
-							</a>
-						</li>
+
+						{% EVENT navbar_header_quick_links_after %}
+
+						<li class="separator in-menu"></li>
+						{% block nav_main_left_side %}
+							{% EVENT overall_header_navigation_prepend %}
+							<li class="small-icon icon-faq in-menu">
+								<a href="{{ U_FAQ }}" rel="help" title="{{ lang('FAQ_EXPLAIN') }}" role="menuitem">{{ lang('FAQ') }}</a>
+							</li>
+							{% EVENT overall_header_navigation_append %}
+						{% endblock nav_main_left_side %}
 					</ul>
 				</div>
-			</div>
-			{% EVENT navbar_header_username_append %}
-		</li>
-		{% if S_DISPLAY_PM %}
-			<li class="small-icon icon-pm rightside" data-skip-responsive="true">
-				<a href="{{ U_PRIVATEMSGS }}" role="menuitem">
-					<span>{{ lang('PRIVATE_MESSAGES') }} </span><strong class="badge{% if not PRIVATE_MESSAGE_COUNT %} hidden{% endif %}">{{ PRIVATE_MESSAGE_COUNT }}</strong>
-				</a>
 			</li>
-		{% endif %}
-		{% if S_NOTIFICATIONS_DISPLAY %}
-		<li class="small-icon icon-notification dropdown-container dropdown-{{ S_CONTENT_FLOW_END }} rightside" data-skip-responsive="true">
-			<a href="{{ U_VIEW_ALL_NOTIFICATIONS }}" id="notification_list_button" class="dropdown-trigger">
-				<span>{{ lang('NOTIFICATIONS') }} </span><strong class="badge{% if not NOTIFICATIONS_COUNT %} hidden{% endif %}">{{ NOTIFICATIONS_COUNT }}</strong>
-			</a>
-			{% INCLUDE 'notification_dropdown.html' %}
-		</li>
-		{% endif %}
-		{% EVENT navbar_header_user_profile_append %}
-	{% endif %}
-	{% if not S_USER_LOGGED_IN and not S_IS_BOT %}
-		<li class="small-icon icon-logout rightside"  data-skip-responsive="true">
-			<a href="{{ U_LOGIN_LOGOUT }}" title="{{ lang('LOGIN_LOGOUT') }}" accesskey="x" role="menuitem">{{ lang('LOGIN_LOGOUT') }}</a>
-		</li>
-		{% if S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) %}
-		<li class="small-icon icon-register rightside" data-skip-responsive="true">
-			<a href="{{ U_REGISTER }}" role="menuitem">{{ lang('REGISTER') }}</a>
-		</li>
-		{% endif %}
-		{% EVENT navbar_header_logged_out_content %}
-	{% endif %}
-	{% if U_ACP %}
-	<li class="small-icon icon-acp" data-skip-responsive="true">
-		<a href="{{ U_ACP }}" title="{{ lang('ACP') }}" role="menuitem">{{ lang('ACP_SHORT') }}</a>
-	</li>
-	{% endif %}
-	{% if U_MCP %}
-	<li class="small-icon icon-mcp" data-last-responsive="true">
-		<a href="{{ U_MCP }}" title="{{ lang('MCP') }}" role="menuitem">{{ lang('MCP_SHORT') }}</a>
-	</li>
-	{% endif %}
-	{% EVENT overall_header_navigation_prepend %}
-	<li class="small-icon icon-faq" {% if not S_USER_LOGGED_IN %}data-skip-responsive="true"{% else %}data-last-responsive="true"{% endif %}>
-		<a href="{{ U_FAQ }}" rel="help" title="{{ lang('FAQ_EXPLAIN') }}" role="menuitem">
-			{{ lang('FAQ') }}
-		</a>
-	</li>
-	{% EVENT overall_header_navigation_append %}
-	</ul>
 
+			{% if U_ACP %}
+				<li class="small-icon icon-acp">
+					<a href="{{ U_ACP }}" title="{{ lang('ACP') }}" role="menuitem">{{ lang('ACP_SHORT') }}</a>
+				</li>
+			{% endif %}
+			{% if U_MCP %}
+				<li class="small-icon icon-mcp">
+					<a href="{{ U_MCP }}" title="{{ lang('MCP') }}" role="menuitem">{{ lang('MCP_SHORT') }}</a>
+				</li>
+			{% endif %}
+			{{ block('nav_main_left_side', _self) }}
+
+			{% if S_REGISTERED_USER %}
+
+				{% EVENT navbar_header_user_profile_prepend %}
+
+				<li id="username_logged_in" class="rightside {% if CURRENT_USER_AVATAR %} no-bulletin{% endif %}">
+
+					{% EVENT navbar_header_username_prepend %}
+
+					<div class="header-profile dropdown-container">
+						<a href="{{ U_PROFILE }}" class="header-avatar dropdown-trigger">
+							{% if CURRENT_USER_AVATAR %}{% include 'avatar.html' with {'avatar_data': CURRENT_USER_AVATAR} only %} {% endif %}
+							{{ CURRENT_USERNAME_SIMPLE }}
+						</a>
+						<div class="dropdown">
+							<div class="pointer"><div class="pointer-inner"></div></div>
+							<ul class="dropdown-contents" role="menu">
+								{% if U_RESTORE_PERMISSIONS %}
+									<li class="small-icon icon-restore-permissions">
+										<a href="{{ U_RESTORE_PERMISSIONS }}">{{ lang('RESTORE_PERMISSIONS') }}</a>
+									</li>
+								{% endif %}
+
+								{% EVENT navbar_header_profile_list_before %}
+
+								<li class="small-icon icon-ucp">
+									<a href="{{ U_PROFILE }}" title="{{ lang('PROFILE') }}" role="menuitem">{{ lang('PROFILE') }}</a>
+								</li>
+								{% if U_USER_PROFILE %}
+									<li class="small-icon icon-profile">
+										<a href="{{ U_USER_PROFILE }}" title="{{ lang('READ_PROFILE') }}" role="menuitem">{{ lang('READ_PROFILE') }}</a>
+									</li>
+								{% endif %}
+
+								{% EVENT navbar_header_profile_list_after %}
+
+								<li class="separator"></li>
+								<li class="small-icon icon-logout">
+									<a href="{{ U_LOGIN_LOGOUT }}" title="{{ lang('LOGIN_LOGOUT') }}" accesskey="x" role="menuitem">{{ lang('LOGIN_LOGOUT') }}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					{% EVENT navbar_header_username_append %}
+
+				</li>
+				{% if S_DISPLAY_PM %}
+					<li class="small-icon icon-pm rightside">
+						<a href="{{ U_PRIVATEMSGS }}" role="menuitem">
+							<span>{{ lang('PRIVATE_MESSAGES') }} </span><strong class="badge{% if not PRIVATE_MESSAGE_COUNT %} hidden{% endif %}">{{ PRIVATE_MESSAGE_COUNT }}</strong>
+						</a>
+					</li>
+				{% endif %}
+
+				{% if S_NOTIFICATIONS_DISPLAY %}
+					<li class="small-icon icon-notification dropdown-container dropdown-{{ S_CONTENT_FLOW_END }} rightside">
+						<a href="{{ U_VIEW_ALL_NOTIFICATIONS }}" id="notification-button" class="dropdown-trigger">
+							<span>{{ lang('NOTIFICATIONS') }} </span><strong class="badge{% if not NOTIFICATIONS_COUNT %} hidden{% endif %}">{{ NOTIFICATIONS_COUNT }}</strong>
+						</a>
+
+						{% include 'notification_dropdown.html' %}
+
+					</li>
+				{% endif %}
+
+			{% EVENT navbar_header_user_profile_append %}
+
+			{% elseif not S_IS_BOT %}
+				<li class="small-icon icon-logout rightside">
+					<a href="{{ U_LOGIN_LOGOUT }}" title="{{ lang('LOGIN_LOGOUT') }}" accesskey="x" role="menuitem">{{ lang('LOGIN_LOGOUT') }}</a>
+				</li>
+				{% if S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) %}
+					<li class="small-icon icon-register rightside">
+						<a href="{{ U_REGISTER }}" role="menuitem">{{ lang('REGISTER') }}</a>
+					</li>
+				{% endif %}
+
+				{% EVENT navbar_header_logged_out_content %}
+
+			{% endif %}
+		</ul>
 	</div>
 </div>

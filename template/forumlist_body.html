@@ -48,7 +48,11 @@
 							    {% EVENT forumlist_body_subforum_link_prepend %}
 							    <a href="{{ subforum.U_SUBFORUM }}"
 							        class="subforum{% if subforum.S_UNREAD %} unread{% else %} read{% endif %}" title="{% if subforum.IS_LINK %}{{ lang('FORUM_LINK') }}{% elseif subforum.S_UNREAD %}{{ lang('UNREAD_POSTS') }}{% else %}{{ lang('NO_UNREAD_POSTS') }}{% endif %}">
-							    <i class="icon {% if subforum.IS_LINK %}fa-external-link{% else %}fa-file-o{% endif %} fa-fw {% if subforum.S_UNREAD %} icon-red{% else %} icon-blue{% endif %} icon-md" aria-hidden="true"></i>
+							    {% if subforum.IS_LINK %}
+							        {{ Icon('font', 'arrow-up-right-from-square', '', true, 'fas c-subforum-icon') }}
+							    {% else %}
+							        {{ Icon('font', 'file', '', true, 'far c-subforum-icon') }}
+							    {% endif %}
 							            <span>{{ subforum.SUBFORUM_NAME }}</span></a>
 							    {% EVENT forumlist_body_subforum_link_append %}
 							{% endfor %}

@@ -57,7 +57,7 @@
 				<button class="button icon-button search-icon" type="submit" title="{{ lang('SEARCH') }}">
 					<span class="sr-only">{{ lang('SEARCH') }}</span>
 				</button>
-				<a href="{{ U_SEARCH }}" class="button icon-button search-adv-icon" title="{{ lang('SEARCH_ADV') }}">
+				<a href="{{ U_SEARCH_FORUM }}" class="button icon-button search-adv-icon" title="{{ lang('SEARCH_ADV') }}">
 				</a>
 				{{ S_SEARCH_LOCAL_HIDDEN_FIELDS }}
 			</fieldset>
@@ -104,12 +104,12 @@
 				<dl>
 					<dt><label for="password">{{ lang('PASSWORD') }}{{ lang('COLON') }}</label></dt>
 					<dd><input type="password" tabindex="2" id="password" name="password" size="25" class="inputbox autowidth" autocomplete="current-password" /></dd>
-					{% if S_AUTOLOGIN_ENABLED %}<dd><label for="autologin"><input type="checkbox" name="autologin" id="autologin" tabindex="3" /> {{ lang('LOG_ME_IN') }}</label></dd>{% endif %}
+					{% if S_AUTOLOGIN_ENABLED %}<dd><label for="autologin"><input type="checkbox" name="autologin" id="autologin" tabindex="3" checked /> {{ lang('LOG_ME_IN') }}</label></dd>{% endif %}
 					<dd><label for="viewonline"><input type="checkbox" name="viewonline" id="viewonline" tabindex="4" /> {{ lang('HIDE_ME') }}</label></dd>
 				</dl>
 				<dl>
 					<dt>&nbsp;</dt>
-					<dd><input type="submit" name="login" tabindex="5" value="{{ lang('LOGIN') }}" class="button1" /></dd>
+					<dd><input type="submit" name="login" tabindex="5" value="{{ lang('LOGIN') }}" class="button1 button button-form" /></dd>
 				</dl>
 				{{ S_LOGIN_REDIRECT }}
 				{{ S_FORM_TOKEN_LOGIN }}
@@ -168,7 +168,7 @@
 
 						{% if topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED %}
 							<a href="{{ topicrow.U_MCP_QUEUE }}" title="{% if topicrow.S_TOPIC_UNAPPROVED %} {{ lang('TOPIC_UNAPPROVED') }}{% else %}{{ lang('POSTS_UNAPPROVED') }}{% endif %}">
-								<i class="icon fa-question fa-fw icon-blue" aria-hidden="true"></i><span class="sr-only">{% if topicrow.S_TOPIC_UNAPPROVED %} {{ lang('TOPIC_UNAPPROVED') }} {% else %} {{ lang ('POSTS_UNAPPROVED') }} {% endif %}</span>
+								{{ Icon('font', 'circle-question', '', true, 'fas c-unapproved-icon o-icon-baseline') }}<span class="sr-only">{% if topicrow.S_TOPIC_UNAPPROVED %} {{ lang('TOPIC_UNAPPROVED') }} {% else %} {{ lang ('POSTS_UNAPPROVED') }} {% endif %}</span>
 							</a> 
 						{% endif %}
 						{% if topicrow.S_TOPIC_DELETED %}
@@ -196,14 +196,14 @@
 
                         {% if topicrow.pagination|length %}
                         <div class="pagination">
-                            <span><i class="icon fa-clone fa-fw" aria-hidden="true"></i></span>
+                            <span>{{ Icon('font', 'clone', '', true, 'far') }}</span>
                             <ul>
                                 {% for pagination in topicrow.pagination %}
                                 {% if pagination.S_IS_PREV %}
                                 {% elseif pagination.S_IS_CURRENT %}<li class="active"><span>{{ pagination.PAGE_NUMBER }}</span></li>
                                 {% elseif pagination.S_IS_ELLIPSIS %}<li class="ellipsis"><span>{{ lang('ELLIPSIS') }}</span></li>
                                 {% elseif pagination.S_IS_NEXT %}
-                                {% else %}<li><a class="button" href="{{ pagination.PAGE_URL }}">{{ pagination.PAGE_NUMBER }}</a></li>
+                                {% else %}<li><a class="button" href="{{ pagination.PAGE_URL }}" role="button">{{ pagination.PAGE_NUMBER }}</a></li>
                                 {% endif %}
                                 {% endfor %}
                             </ul>
@@ -211,8 +211,8 @@
                         {% endif %}
 
                         <div class="topic-poster responsive-hide left-box">
-                            {% if topicrow.S_HAS_POLL %}<i class="icon fa-bar-chart fa-fw" aria-hidden="true"></i>{% endif %}
-                            {% if topicrow.ATTACH_ICON_IMG %}<i class="icon fa-paperclip fa-fw" aria-hidden="true"></i>{% endif %}
+                            {% if topicrow.S_HAS_POLL %}{{ Icon('font', 'chart-bar', '', true) }}{% endif %}
+                            {% if topicrow.ATTACH_ICON_IMG %}{{ Icon('font', 'paperclip', '', true) }}{% endif %}
                             {% EVENT topiclist_row_topic_by_author_before %}
                             {{ lang('POST_BY_AUTHOR') }} {% EVENT viewforum_body_topic_author_username_prepend %}{{ topicrow.TOPIC_AUTHOR_FULL }}{% EVENT viewforum_body_topic_author_username_append %} &raquo; <time datetime="{{ topicrow.FIRST_POST_TIME_RFC3339 }}">{{ topicrow.FIRST_POST_TIME }}</time>
                             {% EVENT topiclist_row_topic_by_author_after %}
@@ -268,7 +268,7 @@
 			<div class="buttons">
 			{% EVENT viewforum_buttons_bottom_before %}
 
-			<a href="{{ U_POST_NEW_TOPIC }}" class="button icon-button{% if S_IS_LOCKED %}locked-icon{% else %}post-icon{% endif %}" title="{% if S_IS_LOCKED %}{{ lang('FORUM_LOCKED') }}{% else %}{{ lang('POST_TOPIC') }}{% endif %}">
+			<a href="{{ U_POST_NEW_TOPIC }}" class="button icon-button {% if S_IS_LOCKED %}locked-icon{% else %}post-icon{% endif %}" title="{% if S_IS_LOCKED %}{{ lang('FORUM_LOCKED') }}{% else %}{{ lang('POST_TOPIC') }}{% endif %}">
 			{% if S_IS_LOCKED %}
 				<span>{{ lang('BUTTON_FORUM_LOCKED') }}</span>
 			{% else %}
@@ -308,7 +308,7 @@
 	</div>
 {% endif %}
 
-{% if S_IS_POSTABLE and rules|length %}
+{% if S_IS_POSTABLE and loops.rules|length %}
 	<div class="stat-block permissions">
 		<h3>{{ lang('FORUM_PERMISSIONS') }}</h3>
 		<p>{% for rules in loops.rules %}{{ rules.RULE }}<br />{% endfor %}</p>

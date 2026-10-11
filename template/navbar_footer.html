@@ -6,10 +6,9 @@
 			{% if U_SITE_HOME %}
 			<span class="crumb">
 				<a href="{{ U_SITE_HOME }}" data-navbar-reference="home">
-
 				<span>{{ lang('SITE_HOME') }}</span>
 				</a>
-				</span>
+			</span>
 			{% endif %}
 			{% EVENT overall_footer_breadcrumb_prepend %}
 			<span class="crumb">
@@ -21,52 +20,78 @@
 			{% EVENT overall_footer_breadcrumb_append %}
 		</li>
 
-		{% if U_WATCH_FORUM_LINK and not S_IS_BOT %}
-			<li class="small-icon {% if S_WATCHING_FORUM %}icon-check-square-o{% else %}icon-square-o{% endif %}" data-skip-responsive="true">
-				<a	href="{{ U_WATCH_FORUM_LINK }}"
-					title="{{ S_WATCH_FORUM_TITLE }}"
-					data-ajax="toggle_link"
-					data-toggle-class="{% if S_WATCHING_FORUM %}icon-square-o{% else %}icon-check-square-o{% endif %}"
-					data-toggle-text="{{ S_WATCH_FORUM_TOGGLE }}"
-					data-toggle-url="{{ U_WATCH_FORUM_TOGGLE }}">
-					<span>{{ S_WATCH_FORUM_TITLE }}</span>
-				</a>
-			</li>
-		{% endif %}
+		{% block nav_footer_left_side %}
+			{% if U_WATCH_FORUM_LINK and not S_IS_BOT %}
+				<li class="in-menu">
+					<a href="{{ U_WATCH_FORUM_LINK }}" title="{{ S_WATCH_FORUM_TITLE }}" data-ajax="toggle_link" data-toggle-text="{{ S_WATCH_FORUM_TOGGLE }}" data-toggle-url="{{ U_WATCH_FORUM_TOGGLE }}">
+						{% if S_WATCHING_FORUM %}
+							{{ Icon('font', 'square-check', '', true, 'far c-watch-icon is-active') }}
+							{{ Icon('font', 'square', '', true, 'far c-watch-icon') }}
+						{% else %}
+							{{ Icon('font', 'square', '', true, 'far c-watch-icon is-active') }}
+							{{ Icon('font', 'square-check', '', true, 'far c-watch-icon') }}
+						{% endif %}
+						<span>{{ S_WATCH_FORUM_TITLE }}</span>
+					</a>
+				</li>
+			{% endif %}
+		{% endblock nav_footer_left_side %}
 
 		{% EVENT overall_footer_timezone_before %}
 		<li class="rightside">{{ S_TIMEZONE }}</li>
 		{% EVENT overall_footer_timezone_after %}
-		{% if not S_IS_BOT %}
-			<li class="small-icon icon-delete-cookies rightside">
-				<a href="{{ U_DELETE_COOKIES }}" data-ajax="true" data-refresh="true" role="menuitem">
-					<span>{{ lang('DELETE_COOKIES') }}</span>
-				</a>
-			</li>
-		{% if S_DISPLAY_MEMBERLIST %}
-			<li class="small-icon icon-members rightside" data-last-responsive="true">
-				<a href="{{ U_MEMBERLIST }}" title="{{ lang('MEMBERLIST_EXPLAIN') }}" role="menuitem">
-					<span>{{ lang('MEMBERLIST') }}</span>
-				</a>
-			</li>
-		{% endif %}
-		{% endif %}
-		{% EVENT overall_footer_teamlink_before %}
-		{% if U_TEAM %}
-			<li class="small-icon icon-team rightside" data-last-responsive="true">
-				<a href="{{ U_TEAM }}" role="menuitem">
-					<span>{{ lang('THE_TEAM') }}</span>
-				</a>
-			</li>
-		{% endif %}
-		{% EVENT overall_footer_teamlink_after %}
-		{% if U_CONTACT_US %}
-			<li class="small-icon icon-contact rightside" data-last-responsive="true">
-				<a href="{{ U_CONTACT_US }}" role="menuitem">
-					<span>{{ lang('CONTACT_US') }}</span>
-				</a>
-			</li>
-		{% endif %}
+
+		{% block nav_footer_right_side %}
+			{% EVENT navbar_footer_right_side_prepend %}
+			{% if not S_IS_BOT %}
+				<li class="small-icon icon-delete-cookies rightside in-menu">
+					<a href="{{ U_DELETE_COOKIES }}" data-ajax="true" data-refresh="true" role="menuitem">
+						<span>{{ lang('DELETE_COOKIES') }}</span>
+					</a>
+				</li>
+				{% if S_DISPLAY_MEMBERLIST %}
+					<li class="small-icon icon-members rightside in-menu">
+						<a href="{{ U_MEMBERLIST }}" title="{{ lang('MEMBERLIST_EXPLAIN') }}" role="menuitem">
+							<span>{{ lang('MEMBERLIST') }}</span>
+						</a>
+					</li>
+				{% endif %}
+			{% endif %}
+			{% EVENT overall_footer_teamlink_before %}
+			{% if U_TEAM %}
+				<li class="small-icon icon-team rightside in-menu">
+					<a href="{{ U_TEAM }}" role="menuitem">
+						<span>{{ lang('THE_TEAM') }}</span>
+					</a>
+				</li>
+			{% endif %}
+			{% EVENT overall_footer_teamlink_after %}
+			{% if U_CONTACT_US %}
+				<li class="small-icon icon-contact rightside in-menu">
+					<a href="{{ U_CONTACT_US }}" role="menuitem">
+						<span>{{ lang('CONTACT_US') }}</span>
+					</a>
+				</li>
+			{% endif %}
+			{% EVENT navbar_footer_right_side_append %}
+		{% endblock nav_footer_right_side %}
+
+		<li class="rightside dropdown-container responsive-menu">
+			<a class="dropdown-toggle" href="">
+				{{ Icon('font', 'bars', '', true) }}
+			</a>
+			<div class="dropdown">
+				<div class="pointer">
+					<div class="pointer-inner"></div>
+				</div>
+
+				<ul class="dropdown-contents">
+					{{ block('nav_footer_left_side', _self) }}
+					<li class="separator"></li>
+					{{ block('nav_footer_right_side', _self) }}
+				</ul>
+			</div>
+		</li>
 	</ul>
 
 	</div>

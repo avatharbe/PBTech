@@ -148,6 +148,15 @@ i, em {
     height: 24px;
 }
 
+/* prosilver pulls .navbar out by -5px on small screens to cancel its .wrap padding;
+   PBTech's .wrap has no padding, so that pushed the header navbar past the screen edge */
+@media (max-width: 750px) {
+    #page-header .navbar {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
 #body-header {
     min-height: 35px;
     position: relative;

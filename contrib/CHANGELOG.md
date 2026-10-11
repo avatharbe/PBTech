@@ -2,6 +2,24 @@
 
 Version history for the [PBTech style for phpBB](../README.md).
 
+4.0.0-dev (unreleased) - phpBB 4.0 port
+- requires phpBB 4.0; phpBB 3.3 boards stay on the 3.0.x line
+- added `composer.json` and removed `style.cfg`: phpBB 4.0 only lists style folders that contain a `composer.json` (PHPBB-10824), so the style did not show up under ACP > Install styles at all
+- replaced every Font Awesome 4 `<i class="icon fa-*">` with phpBB 4.0's `Icon()` Twig function: 4.0 ships Font Awesome 6 and drops prosilver's `.icon` class, so these icons rendered blank - the breadcrumb home icon, mark forums read, the sort options button, the topic list poll, attachment, unapproved and multi-page icons, the subforum icons and the search result arrow links. PBTech's own image-based icons are unchanged: 4.0 still provides `TOPIC_IMG_STYLE`, `FORUM_IMG_STYLE` and the `*_IMG` imageset variables, and still ships the `FontAwesome` compatibility font the `small-icon` menu icons use
+- `navbar_header.html` rebuilt on prosilver 4.0: avatars are now passed as data and rendered through `avatar.html` (printing `CURRENT_USER_AVATAR` crashed every page for logged-in users), "Mark forums read" is in the quick links, the FAQ moves into the quick links on narrow screens, and the notifications button uses the `notification-button` ID that 4.0's JavaScript expects
+- `viewtopic_body.html`: post avatars use `avatar.html` (the old markup crashed every topic), the post buttons gained prosilver 4.0's responsive menu - 4.0 hides the plain buttons on narrow screens, so without it they disappeared on phones - and the per-post back-to-top link is replaced by 4.0's single floating back-to-top button
+- `navbar_footer.html` gained 4.0's responsive menu and the `navbar_footer_right_side_prepend` / `_append` events; the "Subscribe forum" link now uses 4.0's two-icon toggle, since 4.0 dropped the `data-toggle-class` swap and the checkbox no longer updated after clicking
+- `index_body.html`: the online legend is now a list of groups in 4.0, rendered with a loop as in prosilver; added the `index_body_forumlist_body_before` event
+- `overall_header.html` / `overall_footer.html`: added 4.0's web app meta tags, manifest link, web push include and loading indicator; the Font Awesome CDN fallback now checks for Font Awesome 6
+- renamed `navbar.html` to `breadcrumbs.html`, so it replaces prosilver 4.0's breadcrumbs template
+- added the `search_results_topic_title_prepend` / `_append` events and 4.0's form button classes
+- fixed the jQuery fallback in `overall_footer.html`, which pointed to `jquery.min.js` - a file phpBB does not ship - so the fallback failed whenever the CDN did
+- fixed the bottom "New Topic" button, which lost its icon because of a missing space in its class list
+- fixed the forum permissions block on forum pages, which never showed: it tested `rules|length` instead of `loops.rules|length`
+- fixed contact links without their own URL, which pointed to the non-existent `contact.U_POST_AUTHOR` instead of the poster's profile; removed the Jabber popup, as phpBB 4.0 dropped Jabber
+- fixed a horizontal scroll on phones: prosilver pulls `.navbar` out by 5px to cancel its `.wrap` padding, but PBTech's `.wrap` has no padding, so the header navbar ran past the screen edge
+- bumped the stylesheet import versions from `?v=3.3` to `?v=4.0`, so browsers fetch the new CSS after upgrading
+
 3.0.29 (04-10-2026)
 - fixed the broken markup on the reply button above the posts in a topic: its `title` attribute ran over several lines, contained an unescaped `<span>` in locked topics and closed early with a stray `</span>`, and the label left a `<span>` unclosed in locked topics and emitted an unmatched `</span>` otherwise, breaking the DOM of the top action bar on every topic page - the button now matches the one in the bottom action bar ([#63](https://github.com/avatharbe/PBTech/issues/63))
 - the footer navbar reused the header's `nav-main` ID and class, so every page carried a duplicate ID and phpBB's `forum_fn.js` treated the footer as the main navigation, skipping its responsive menu on narrow screens - the footer now uses `nav-footer`, as in prosilver ([#64](https://github.com/avatharbe/PBTech/issues/64))

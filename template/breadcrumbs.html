@@ -8,7 +8,7 @@
 			{% if U_SITE_HOME %}
 			<span class="crumb" {{ MICRODATA }}>
 				<a href="{{ U_SITE_HOME }}" itemprop="item" data-navbar-reference="home">
-				<i class="icon fa-home fa-fw" aria-hidden="true"></i>
+				{{ Icon('font', 'home', '', true, 'fas o-icon-baseline') }}
 				<span itemprop="name">{{ lang('SITE_HOME') }}</span>
 				</a>
 				<meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" />
@@ -18,7 +18,7 @@
 			{% EVENT overall_header_breadcrumb_prepend %}
 			<span class="crumb" {{ MICRODATA }}>
 				<a href="{{ U_INDEX }}" itemprop="item" accesskey="h" data-navbar-reference="index">
-				{% if not U_SITE_HOME %}<i class="icon fa-home fa-fw" aria-hidden="true"></i>{% endif %}
+				{% if not U_SITE_HOME %}{{ Icon('font', 'home', '', true, 'fas o-icon-baseline') }}{% endif %}
 				<span itemprop="name">{{ lang('INDEX') }}</span>
 				</a>
 				<meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" />
@@ -46,7 +46,7 @@
 		{% if S_DISPLAY_SEARCH and not S_IN_SEARCH %}
 		<li class="responsive-search rightside" style="display: none;">
 			<a href="{{ U_SEARCH }}" title="{{ lang('SEARCH_ADV_EXPLAIN') }}" role="menuitem">
-				<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">{{ lang('SEARCH') }}</span>
+				{{ Icon('font', 'search', lang('SEARCH'), true) }}
 			</a>
 		</li>
 		{% endif %}
@@ -56,7 +56,7 @@
 				{% set MARK_LABEL = (S_VIEWFORUM and S_HAS_SUBFORUM) ? lang('MARK_SUBFORUMS_READ') : lang('MARK_FORUMS_READ') %}
 				<li class="rightside">
 					<a href="{{ U_MARK_FORUMS }}" accesskey="m" data-ajax="mark_forums_read" title="{{ MARK_LABEL }}">
-						<i class="icon fa-check-square-o fa-fw" aria-hidden="true"></i><span class="sr-only">{{ MARK_LABEL }}</span>
+						{{ Icon('font', 'square-check', MARK_LABEL, true, 'far') }}
 					</a>
 				</li>
 			{% endif %}
@@ -64,7 +64,7 @@
 			{% if S_VIEWTOPIC and U_VIEW_UNREAD_POST %}
 				<li class="rightside">
 					<a href="{{ U_VIEW_UNREAD_POST }}" title="{{ lang('VIEW_UNREAD_POST') }}">
-						<i class="icon fa-eye fa-fw" aria-hidden="true"></i><span class="sr-only">{{ lang('VIEW_UNREAD_POST') }}</span>
+						{{ Icon('font', 'eye', lang('VIEW_UNREAD_POST'), true) }}
 					</a>
 				</li>
 			{% endif %}
@@ -79,7 +79,7 @@
 				{% else %}
 					<li class="rightside">
 						<a class="arrow-{{ S_CONTENT_FLOW_BEGIN }}" href="{{ U_SEARCH }}" title="{{ lang('SEARCH_ADV') }}">
-							<i class="icon fa-angle-{{ S_CONTENT_FLOW_BEGIN }} fa-fw icon-black" aria-hidden="true"></i><span>{{ lang('GO_TO_SEARCH_ADV') }}</span>
+							{{ Icon('font', 'angle-' ~ S_CONTENT_FLOW_BEGIN, lang('GO_TO_SEARCH_ADV'), false, 'fas c-return-arrow-icon') }}
 						</a>
 					</li>
 				{% endif %}
