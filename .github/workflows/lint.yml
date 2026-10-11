@@ -2,7 +2,7 @@ name: Lint
 
 on:
   push:
-    branches: [develop-33]
+    branches: [develop-33, phpbb4]
   pull_request:
 
 jobs:
