@@ -19,6 +19,7 @@ Version history for the [PBTech style for phpBB](../README.md).
 - fixed contact links without their own URL, which pointed to the non-existent `contact.U_POST_AUTHOR` instead of the poster's profile; removed the Jabber popup, as phpBB 4.0 dropped Jabber
 - fixed a horizontal scroll on phones: prosilver pulls `.navbar` out by 5px to cancel its `.wrap` padding, but PBTech's `.wrap` has no padding, so the header navbar ran past the screen edge
 - bumped the stylesheet import versions from `?v=3.3` to `?v=4.0`, so browsers fetch the new CSS after upgrading
+- removed the `.no-avatar` placeholder rule and `theme/images/no_avatar.gif`: phpBB 4.0 always renders an avatar, using a letter avatar for members without one, so the placeholder could no longer show
 - the post buttons shown on hover sit on one line again, with the icons lined up with their labels and without the dark text shadow inherited from the blue buttons: phpBB 4.0 lays buttons out as flex boxes and prosilver caps post buttons at 40% of the post width to clear the post subject, which PBTech hides, so the labelled buttons wrapped onto up to three rows and covered the first line of the post
 
 3.0.29 (04-10-2026)

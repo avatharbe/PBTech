@@ -266,10 +266,6 @@ fieldset.polls dl.voted {
     position: relative;
 }
 
-.no-avatar .avatar-container {
-    background: url("./images/no_avatar.gif") 50% 10px no-repeat;
-}
-
 .postprofile .avatar {
     display: inline-block;
     float: none;
