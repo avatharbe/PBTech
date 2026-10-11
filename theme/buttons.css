@@ -167,12 +167,23 @@
     height: auto;
     width: auto;
     color: #4d606d;
+    text-shadow: none;
+    gap: 3px;
 }
 
+/* prosilver caps the buttons at 40% to clear the post subject, which PBTech hides; at 40% the
+   labelled buttons wrapped onto several rows and covered the start of the post text */
+.hasjs .postbody .post-buttons {
+    max-width: 70%;
+}
+
+/* phpBB 4.0 lays .button out as inline-flex: give every icon the same box so labels line up */
 .post-buttons .icon-button:before {
     font-family: FontAwesome;
     font-size: 1.3em;
-    line-height: inherit;
+    width: 1.28571em;
+    text-align: center;
+    line-height: 1;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
