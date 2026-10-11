@@ -1,17 +1,17 @@
 ## PBTech Style for phpBB
 
-PBTech is a tech-themed style for phpBB 3.3, inspired by the Blizzard Battle.net forums of 2015: a dark header, a light content area, and blue accent colours throughout.
+PBTech is a tech-themed style for phpBB 4.0, inspired by the Blizzard Battle.net forums of 2015: a dark header, a light content area, and blue accent colours throughout.
 
 ![PBTech screenshot](contrib/screenshot.png)
 
 The style is built as a child of **prosilver**. It keeps phpBB's standard markup, template events and responsive layout, and it picks up prosilver fixes automatically.
 
-- **Version:** 3.0.29 (04-10-2026)
+- **Version:** 4.0.0-dev (in development, not yet released). For phpBB 3.3, use PBTech 3.0.x from the `develop-33` branch.
 - **Authors:** PayBas (2015) and [@Sajaki](https://www.phpbb.com/customise/db/author/sajaki/) (since 2016)
 - **Design reference:** [the Battle.net forums as they were in 2014](http://web.archive.org/web/20141207163104/http://us.battle.net/en/forum/topic/10423582376)
 
 ## Requirements
-- phpBB 3.3.18 or higher
+- phpBB 4.0 (tested on 4.0.0-a3-dev)
 - prosilver (parent style)
 
 ## Features
@@ -22,8 +22,8 @@ The style is built as a child of **prosilver**. It keeps phpBB's standard markup
 - The last poster shown in the forum list.
 - Styled breadcrumb tooltips.
 - Restyled polls, quotes and code boxes.
-- Font Awesome icons throughout, using phpBB's built-in Font Awesome.
-- Styling for the Recent Topics extension, and compatibility with pbwowExt.
+- Font Awesome icons throughout, using phpBB 4.0's built-in Font Awesome 6 and its `Icon()` template function.
+- Styling for the Recent Topics extension. pbwowExt support depends on a phpBB 4.0 release of pbwowExt.
 - Responsive layout for tablets and phones, plus a print view.
 - Right-to-left (RTL) language support.
 
@@ -35,6 +35,8 @@ The style is built as a child of **prosilver**. It keeps phpBB's standard markup
 1. Replace the `pbtech` folder with the new version.
 2. Purge the board cache in the ACP.
 
+Coming from phpBB 3.3: phpBB 4.0 reads a style's details from `composer.json` instead of `style.cfg`, so PBTech 3.0.x does not show up on a 4.0 board. Update the board to phpBB 4.0 first, then replace the `pbtech` folder with this version.
+
 ## Designer resources
 The `contrib` folder contains a Photoshop PSD with an alternative icon set.
 
@@ -45,9 +47,9 @@ The `contrib` folder contains a Photoshop PSD with an alternative icon set.
 See [contrib/CHANGELOG.md](contrib/CHANGELOG.md) for the full version history.
 
 ## Development
-The repository includes lint tooling, With Node.js 24:
+The repository includes lint tooling. With Node.js 24:
 
-- `npm ci`, then `npm run lint` checks the theme CSS with stylelint and the templates with a phpBB-specific checker (legacy syntax, `DEFINE`, extension-owned variables). GitHub Actions runs the same on every pull request.
+- `npm ci`, then `npm run lint` checks the theme CSS with stylelint and the templates with a phpBB-specific checker (legacy syntax, `DEFINE`, extension-owned variables). GitHub Actions runs the same on every pull request and on pushes to `develop-33` and `phpbb4`.
 - `npm run validate` checks rendered pages of a running board with the W3C Nu HTML Checker. Set `BOARD_URL` to the board root, and `STYLE_ID` to force the style while *Override user style* is off.
 
 

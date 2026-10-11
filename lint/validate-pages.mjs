@@ -48,7 +48,9 @@ for (const forum of ids(pages['index.php'], 'viewforum\\.php', 'f')) {
 		break;
 	}
 }
-for (const page of ['search.php', 'memberlist.php?mode=team', 'ucp.php?mode=login']) {
+// phpBB 4.0 serves the team page through the index.php front controller; the old
+// memberlist.php?mode=team URL redirects there and drops the style parameter.
+for (const page of ['search.php', 'index.php/members/team', 'ucp.php?mode=login']) {
 	pages[page] = await get(page);
 }
 
